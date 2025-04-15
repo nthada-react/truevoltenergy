@@ -10,21 +10,21 @@
 get_header(); ?>
 <?php get_template_part( 'sub_sections/hero-template'); ?> 
 <!--WHAT WE DO-->
-<?php get_template_part( 'sub_sections/whatWeDo-template'); ?> 
+<?php get_template_part( 'sub_sections/home-price-template'); ?> 
 
 <!--WHy US-->
-<?php get_template_part( 'sub_sections/whyUs-template'); ?>
+<?php get_template_part( 'sub_sections/home-why-template'); ?>
 
 <!--Core Capabilities-->
-<?php get_template_part( 'sub_sections/core-template'); ?> 
+<?php get_template_part( 'sub_sections/home-testimonail-template'); ?> 
 
 <!-- Testimonial section-->
-<?php get_template_part( 'sub_sections/testimonail-template'); ?> 
+<?php get_template_part( 'sub_sections/home-coverage-template'); ?> 
 
 <!-- Service section-->
-<?php get_template_part( 'sub_sections/service-template'); ?> 
+<?php get_template_part( 'sub_sections/home-blog-template'); ?> 
 <!-- Oue Team section-->
-<?php get_template_part( 'sub_sections/ourTeam-template'); ?>
+<?php get_template_part( 'sub_sections/home-getTouch-template'); ?>
 <!-- get Touch Section-->
 <?php get_template_part( 'sub_sections/getTouch-template'); ?> 
 

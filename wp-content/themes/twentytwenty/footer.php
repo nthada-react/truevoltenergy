@@ -12,7 +12,17 @@
  */
 
 ?>
-			<!--Footer Section-->
+
+<?php
+global $wp;
+$current_url = home_url(add_query_arg([], $wp->request));
+$get_started_url = $GLOBALS['current_site_url'] . '/get-started';
+
+if ($current_url === $get_started_url) :
+?>
+
+<?php else : ?>
+<!--Footer Section-->
 			<footer class="wow fadeInUp">
 				<div class="footerMenu">
 			<div class="container">
@@ -90,6 +100,9 @@
 		</div>
 		</footer>
 		<!--Footer Section-->
+
+<?php endif; ?>
+			
 
 		<?php wp_footer(); ?>
 	<script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/jquery.min.js"></script>

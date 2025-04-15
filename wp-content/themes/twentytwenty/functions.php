@@ -817,3 +817,14 @@ function twentytwenty_get_elements_array() {
 	 */
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+function add_custom_body_id($output) {
+	if (is_page('get-started')) {
+		$output .= ' id="getStratedForm"';
+	}
+	return $output;
+}
+add_filter('body_class', function($classes) {
+	return $classes; // still use body_class normally
+});
+
+add_filter('body_class_output', 'add_custom_body_id');

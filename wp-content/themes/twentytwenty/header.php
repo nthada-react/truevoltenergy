@@ -31,10 +31,14 @@
 			<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/swiper-bundle.min.css">
 			<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/jquery.fancybox.min.css">
 			<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/main.css" media="screen" />
+			<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/style-get-start.css" media="screen" />
 			<!-- Include Odometer CSS -->
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.min.css">
 
 	</head>
+<?php $GLOBALS[ 'current_site_url' ] = site_url(); ?>
+
+
 
 	<body <?php body_class(); ?>>
 
@@ -42,36 +46,78 @@
 		wp_body_open();
 		?>
 
-	<header>
-				<div class="container">
-				<div class="navbar">
-					<div class="logo">
-						<a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/true-volt-logo.svg" alt="" /></a>
-					</div>
-					<nav class="navigation">
-						<ul class="list-menu" role="list">
-							<li><a href="javascript:void(0)" class="gotosubmenu">Residential</a>
-							</li>
-							<li><a href="javascript:void(0)" class="gotosubmenu">Commercial</a>
-							</li>
-							<li><a href="javascript:void(0)" class="gotosubmenu">Electricity Rates</a>
-							</li>
-						</ul>
-						<ul class="button-menu">
-							<li>
-								<a href="#" class="btn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/phone-icon.svg" alt="" /></a>
-							</li>
-							<li>
-								<a href="#" class="btn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-icon.svg" alt="" /> &nbsp; Log In</a>
-							</li>
-							<li>
-								<a href="#" class="btn btn-getStrated">Get Started</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
+<?php
+global $wp;
+$current_url = home_url(add_query_arg([], $wp->request));
+$get_started_url = $GLOBALS['current_site_url'] . '/get-started';
+
+if ($current_url === $get_started_url) :
+?>
+
+<!-- 👉 GET STARTED PAGE HEADER -->
+<header>
+	<div class="container">
+		<div class="navbar">
+			<div class="goBack">
+				<a href="<?php echo $GLOBALS['current_site_url']; ?>" class="btn">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/arrow-left-white.svg" alt="" /> &nbsp; Back
+				</a>
 			</div>
-			</header>
+			<div class="logo">
+				<a href="<?php echo $GLOBALS['current_site_url']; ?>">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/true-volt-logo.svg" alt="" />
+				</a>
+			</div>
+			<nav class="navigation">
+				<ul class="button-menu">
+					<li>
+						<a href="#" class="btn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/phone-icon.svg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#" class="btn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-icon.svg" alt="" /> &nbsp; Log In</a>
+					</li>
+					<li>
+						<a href="#" class="btn btn-getStrated"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/acount-icon.svg" alt="" /> &nbsp; Create Account</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<?php else : ?>
+
+<!-- 👉 DEFAULT HEADER FOR OTHER PAGES -->
+<header>
+	<div class="container">
+		<div class="navbar">
+			<div class="logo">
+				<a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/true-volt-logo.svg" alt="" /></a>
+			</div>
+			<nav class="navigation">
+				<ul class="list-menu" role="list">
+					<li><a href="<?php echo $GLOBALS['current_site_url']; ?>/" class="gotosubmenu">Residential</a></li>
+					<li><a href="<?php echo $GLOBALS['current_site_url']; ?>/" class="gotosubmenu">Commercial</a></li>
+					<li><a href="<?php echo $GLOBALS['current_site_url']; ?>/" class="gotosubmenu">Electricity Rates</a></li>
+				</ul>
+				<ul class="button-menu">
+					<li>
+						<a href="<?php echo $GLOBALS['current_site_url']; ?>/" class="btn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/phone-icon.svg" alt="" /></a>
+					</li>
+					<li>
+						<a href="<?php echo $GLOBALS['current_site_url']; ?>/" class="btn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-icon.svg" alt="" /> &nbsp; Log In</a>
+					</li>
+					<li>
+						<a href="<?php echo $GLOBALS['current_site_url']; ?>/get-started" class="btn btn-getStrated">Get Started</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<?php endif; ?>
+
 
 		<?php
 		// Output the menu modal.
